@@ -3,6 +3,9 @@ image: r8.im/ani0135/chatbot
 build:
   gpu: true
   python_version: "3.11"
-  python_requirements: requirements.txt
+  run:
+    - pip install torch==2.2.2+cu121 --extra-index-url https://download.pytorch.org/whl/cu121
+    - pip install transformers accelerate huggingface-hub
+    - pip cache purge
 
 predict: "predict.py:Predictor"
