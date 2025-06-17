@@ -1,15 +1,8 @@
-image: r8.im/ani0135/chatbot  # 👈 customize this
+image: r8.im/ani0135/chatbot
 
 build:
   gpu: true
-  # remote: true
   python_version: "3.11"
-  python_packages:
-    - torch
-    - transformers
-    - accelerate
-    # - sentencepiece
-    # - bitsandbytes  # Optional if needed for model
-    - huggingface-hub
+  python_requirements: requirements.txt
 
 predict: "predict.py:Predictor"
