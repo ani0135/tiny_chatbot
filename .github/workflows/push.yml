@@ -1,4 +1,4 @@
-name: tinyllama_chatbot
+name: Push to Replicate
 
 on:
   workflow_dispatch:
@@ -7,9 +7,8 @@ on:
       - main
 
 jobs:
-  push:
+  push-to-replicate:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
@@ -17,7 +16,8 @@ jobs:
         uses: replicate/setup-cog@v2
         with:
           token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
+          install-cuda: false
 
-      - name: Push to Replicate
+      - name: Push model to Replicate
         run: |
-          cog push r8.im/ani0135/tinyllama-chat
+          cog push r8.im/ani0135/chatbot
